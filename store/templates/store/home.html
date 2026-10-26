@@ -1,0 +1,84 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FORMA — Furniture for living</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'store/css/style.css' %}">
+</head>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="#">FORMA</a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#home">HOME</a><a href="#shop">SHOP</a><a href="#about">ABOUT</a><a href="#blogs">BLOG</a><a href="#contact">CONTACT</a>
+    </nav>
+    <div class="header-actions">
+      <form class="header-search" action="#shop" method="get" role="search">
+        <label class="visually-hidden" for="site-search">Search furniture</label>
+        <input id="site-search" type="search" name="q" placeholder="Search furniture..." value="{{ request.GET.q|default:'' }}" autocomplete="off">
+        <button class="search-submit" type="submit"><span aria-hidden="true">⌕</span> <span>SEARCH</span></button>
+      </form>
+      <button class="theme-toggle" id="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Dark mode" title="Toggle dark mode"><span class="theme-track"><span class="theme-thumb"></span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-image active" style="--hero-image:url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2200&q=85')"></div>
+      <div class="hero-image" style="--hero-image:url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=2200&q=85')"></div>
+      <div class="hero-image" style="--hero-image:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2200&q=85')"></div>
+      <div class="hero-image" style="--hero-image:url('https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=2200&q=85')"></div>
+      <div class="hero-shade"></div>
+      <div class="hero-word" aria-hidden="true">FORMA</div>
+      <div class="hero-product">
+        <span class="eyebrow" id="product-category">Radical Form Series</span>
+        <h1 id="product-title">Luxe Sofa</h1>
+        <a class="button button-light" href="#shop">SHOP NOW <span>↗</span></a>
+      </div>
+      <div class="hero-dots" aria-label="Choose featured collection"><button class="dot active" type="button" aria-label="Show slide 1" aria-current="true"></button><button class="dot" type="button" aria-label="Show slide 2"></button><button class="dot" type="button" aria-label="Show slide 3"></button><button class="dot" type="button" aria-label="Show slide 4"></button></div>
+      <div class="ticker"><span>✳  FREE SHIPPING WORLDWIDE</span><span>✳  60% OFF THIS WEEK</span><span>✳  NEW ARRIVALS JUST DROPPED</span><span>✳  ENJOY EXCLUSIVE DEALS AND DISCOUNTS</span></div>
+    </section>
+
+    <section class="intro section-pad" id="about">
+      <p>Experience timeless design, exceptional comfort, and premium craftsmanship crafted to elevate every home and workspace. Each piece is thoughtfully designed to blend beauty and function.</p>
+      <div class="stats"><div><strong>800<span>+</span></strong><small>Unique designs<br>for every space</small></div><div><strong>16k<span>+</span></strong><small>Happy customers<br>around the world</small></div><div><strong>100<span>%</span></strong><small>Thoughtfully made<br>with quality materials</small></div></div>
+    </section>
+
+    <section class="section-pad sellers" id="shop">
+      <div class="section-heading"><div><span class="eyebrow">CURATED FOR YOUR HOME</span><h2>Best Sellers</h2></div><a class="text-link" href="#categories">VIEW ALL PRODUCTS ↗</a></div>
+      <div class="product-grid" id="product-grid">
+        <article class="product-card" data-search="modern armchair armchairs chair upholstered ivory lounge"><a class="product-image" href="#contact"><img src="https://i.pinimg.com/736x/6b/5d/b7/6b5db70239b7d96053af719f938a4d2c.jpg" alt="Modern upholstered armchair" loading="lazy"></a><h3>Modern armchair</h3><p>Armchairs <span>$420.00</span></p></article>
+        <article class="product-card" data-search="long wood table tables oak dining"><a class="product-image" href="#contact"><img src="https://images.unsplash.com/photo-1499933374294-4584851497cc?auto=format&fit=crop&w=1100&q=90" alt="Wood furniture in a calm interior" loading="lazy"></a><h3>Long wood table</h3><p>Tables <span>$380.00</span></p></article>
+        <article class="product-card" data-search="daisy coffee table tables sculptural"><a class="product-image" href="#contact"><img src="https://images.unsplash.com/photo-1532372320572-cda25653a26d?auto=format&fit=crop&w=1100&q=90" alt="Sculptural coffee table" loading="lazy"></a><h3>Daisy coffee table</h3><p>Tables <span>$260.00</span></p></article>
+      </div>
+      <p class="no-results" id="no-results" hidden>No matching furniture found. Try another search.</p>
+    </section>
+
+    <section class="category-section section-pad" id="categories">
+      <span class="eyebrow">FIND YOUR FORM</span><h2>Shop by categories</h2>
+      <div class="category-grid">
+        <a href="#shop"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=85" alt=""><span>Sofas</span></a>
+        <a href="#shop"><img src="https://i.pinimg.com/736x/6b/5d/b7/6b5db70239b7d96053af719f938a4d2c.jpg" alt=""><span>Armchairs</span></a>
+        <a href="#shop"><img src="https://images.unsplash.com/photo-1499933374294-4584851497cc?auto=format&fit=crop&w=800&q=85" alt=""><span>Tables</span></a>
+        <a href="#shop"><img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=85" alt=""><span>Lighting</span></a>
+      </div>
+    </section>
+
+    <section class="feature">
+      <div class="feature-photo"></div><div class="feature-copy"><span class="eyebrow">FORM MEETS FUNCTION</span><h2>Transform<br>your space<br>today</h2><a class="button button-dark" href="#shop">SHOP COLLECTION ↗</a></div>
+    </section>
+
+    <section class="testimonial section-pad"><span class="eyebrow">KIND WORDS</span><h2>Trusted by Homeowners</h2><blockquote>“Beautifully designed furniture that feels premium and comfortable. The living room looks refined and welcoming now. Truly made with thoughtful details.”</blockquote><p class="quote-author">A FORMA CUSTOMER</p></section>
+
+    <section class="blogs section-pad" id="blogs"><div class="section-heading"><div><span class="eyebrow">IDEAS FOR BETTER LIVING</span><h2>Our Blogs</h2></div><a class="text-link" href="#blogs">VIEW ALL ARTICLES ↗</a></div><div class="blog-grid"><article><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=85" alt=""><h3>Designing a calming living space</h3></article><article><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=85" alt=""><h3>Comfort, crafted with intention</h3></article><article><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=85" alt=""><h3>Homes that inspire everyday living</h3></article></div></section>
+
+    <section class="membership"><div><span class="eyebrow">THE FORMA EDIT</span><h2>Membership</h2><p>Get first access to new arrivals, thoughtful design ideas, and special offers.</p><a class="button button-light" href="#contact">JOIN THE CLUB ↗</a></div></section>
+  </main>
+  <footer id="contact"><div class="footer-brand"><a class="wordmark" href="#home">FORMA</a><p>Furniture shaped around<br>the way you live.</p></div><div><h4>Explore</h4><a href="#shop">Shop</a><a href="#categories">Categories</a><a href="#about">Our story</a></div><div><h4>Customer care</h4><a href="#contact">Contact</a><a href="#contact">Shipping & returns</a><a href="#contact">FAQs</a></div><div><h4>Newsletter</h4><p>Notes on design, new pieces and special offers.</p><form onsubmit="event.preventDefault(); alert('Thanks for joining FORMA!')"><input type="email" placeholder="Your email address" required><button type="submit">↗</button></form></div><small class="copyright">© 2026 FORMA. ALL RIGHTS RESERVED.</small></footer>
+  <script src="{% static 'store/js/main.js' %}"></script>
+</body>
+</html>
